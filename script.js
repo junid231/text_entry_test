@@ -39,96 +39,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const sentences_11 = {'4_53': '요즘 애들 빠르긴 해요.', '8_242': '그건 넣을 공간 계산이 안 나와서 사지도 못했어요.', '7_89': '저는 커피믹스에 우유 타 먹는 것도 좋아해요.', '2_53': '독서 좋아하시나요?', '3_132': '보통 어떤 일이요?', '7_35': '근처에 같이 있으면 이렇게 도움받기도 하고 좋네요.', '5_175': '어떤 종목을 제일 재밌게 보셨어요?', '3_134': '다른 건가 봐요.', '4_299': '지금 정말 필요한 상황이요.', '1_175': '2억이요?', '1_2': '날렸죠.', '8_53': '근데 또 실제로 보면 생각보다 크긴 엄청 크더라고요.', '5_55': '사람 안 많아야 할 텐데요.', '9_206': '요즘 날씨가 선선해져서 긴 바지 입었는데 습해서 괜히 입었어요.', '3_92': '아일랜드에서 오래 살았어요.', '7_54': '성격 검사 이런 거 원래 관심이 없으신가요?', '7_299': '그래도 요즘은 비가 와서 겉옷을 꺼내기는 했어요.', '3_53': '전 안 샀었어요.', '6_2': '조카는 한글보다 영어 알파벳을 먼저 익히더라고요.', '3_242': '어떤 계절 좋아하세요?', '7_81': '그러니깐 맛난 거 왜 이렇게 많아 보이냐?', '4_175': '월요일 오전이라 진짜 정신없네요.', '3_2': '저는 정말 싫어해요.', '5_190': '너무 많이 마시는 거 아니야?', '5_295': '백화점 맛있는 거 너무 많아요.', '9_242': '직장 검진 공짜로 해주는 것만 해도 좋을 거 같아요.', '2_295': '갑자기 부럽네요.', '1_53': '진짜?', '3_104': '집안일은 많이 도와주시나요?', '6_51': '근데 다른 것보다는 쉬운 것 같더라고요.', '8_14': '강아지는 땀샘이 없어서 혀로 체온조절 한다고 알고 있어!', '7_132': '무슨 그 영화에 나오는 천재 교수님 같아요.', '6_299': '한번 배탈 나면 고생하는 거 같더라고요.', '8_134': '사실 크림 파스타도 내 돈 주고 안 먹음.', '2_206': '육아하시느라 바쁘시겠네요!', '5_51': '아까 봤는데 되게 피곤해 보였음.', '6_92': '올여름 내내 너무 더워서 과일들이 달대요.', '1_134': '재밌어요.', '1_89': '뭐지?', '1_295': '건강해?', '4_14': '완독하시고 꼭 어땠는지 알려주세요.', '8_2': '배달 음식은 아무래도 건강에 안 좋을 것 같아요.', '1_106': '반대일세.', '4_134': '이 사람 뭐라는 거야?', '3_14': '명란젓 너무 좋지!', '1_51': '여쭤봐야겠네요.', '8_89': '이놈의 돈은 조금 버는 데 하루 종일 걸리네요.', '5_206': '넌 어디 가고 싶은데 있어?', '8_51': '바로 피드백을 받을 수 없으니까 그런 단점이 있군요.', '8_92': '비 올 때만 쓸 수 있으니까 좀 아쉬워요.', '9_132': '전 어린이집 엄마들이랑 잘 모르고 지내서 그런 줄도 몰랐어요.', '5_134': '이미 하고 있는 거 아냐?', '9_92': '그렇게 비 오고 나니까 좀 많이 선선해진 거 같아요.', '1_55': '유명하더라고요.', '4_244': '가끔 계란 넣기도 하고요.', '2_132': '봉사해 보셨나요?', '2_106': '어떤 건가요?', '6_134': '지금 망가진 옷 꿰매는 게 어떠세요?', '7_50': '그 사람이 내 자리 쓸 건가 봐.', '2_51': '챙겨서 봐야겠어요.', '9_106': '근데 규모가 크면 일할 사람이 많아지니 편한 점도 있어요.', '2_54': '행복은 별로입니다.', '1_35': '치킨이죠?', '3_244': '게임 뭐가 재밌나요?', '9_53': '저는 요즘 배드민턴을 치고 싶은데 같이 쳐줄 사람이 없어서요.', '7_55': '알싸한 거보다 고추장처럼 매콤한 걸 좋아하나 봐요?', '2_104': '스파게티 좋아하시나요?', '7_190': '맘 맞는 직원이 있으면 좋은 거 같아요.', '8_104': '저도 깔끔하게 입는 게 제일 좋은 거 같아요.', '3_50': '화장을 엄청나게 빨리하세요?', '4_206': '실시간 아닌 거 아냐?', '4_190': '차는 향을 즐기시는 건가요?', '3_35': '오늘 뭐 했어?', '8_190': '배달이 양이 많기도 하지만, 가격이 조금 비싸지 않나요?', '2_135': '그게 아니었습니다.', '3_81': '빨래가 안 마르네요.', '9_135': '짧고 자극적이고 접근하기 쉬운 영상이 잘 팔리는 것 같아요.', '5_54': '안 해보는 게 더 좋죠.', '9_288': '그러고 보니 성인 되고 나서는 딱히 운동을 안 했네요.', '8_132': '한강은 둘레길 따라 자전거 타는 사람들도 정말 많더라!', '3_190': '오랜만에 먹었더니 맛있네요.', '5_167': '가까운데 산책이라도 가려고 했는데 아쉽네요.', '8_106': '그런 걸 연애하면서 맞춰가거나 정리하는 작업을 거치는 듯하네요.', '7_175': '근데 솔직히 개발자는 집에서도 일할 수 있잖아.', '9_14': '아니 근데 너는 딱 봐도 해준 만큼 해줄 친구거든?', '2_81': '귀신도 잡는다는?', '1_167': '힐링입니다.', '4_55': '이번 서울 여행 기대된다!', '7_206': '이번에는 거의 모든 종목 본 거 같아요.', '6_244': '따뜻한 방에서 만화책 읽으며 뒹굴고 싶어요.', '7_14': '애들이랑 같이 할만한 운동도 좋을 것 같아요.', '6_175': '여름이랑 겨울 중엔 뭐가 더 좋으세요?', '3_295': '그냥 채팅 게임인가?', '7_295': '저도 굳이 따지자면 로맨스보다는 범죄물을 더 좋아해요.', '2_92': '치킨도 맛있죠.', '3_54': '무설탕 초콜릿은 어때?', '8_50': '근데 남미 가려면 진짜 1달 이상 쉬어야 함.', '9_190': '평소엔 잘 안 보는데 올림픽이나 월드컵 같은 거만 챙겨봐요.', '9_295': '근데 자취하다 같이 살면 너무 답답할 것 같기도 해요.', '8_35': '아직 해본 적은 없는데 뭔가 어색할 것 같아요.', '2_2': '어제는 난리였었죠.', '5_2': '헬스는 하신 지 얼마나 되셨어요?', '6_54': '저 엄청 열심히 하는 거 아시죠?', '6_295': '저도 어디서 본 것 같긴 하네요.', '1_132': '건강하신가요?', '1_242': '정말요?', '7_135': '지키려고 노력은 하는데 참 태생이 게으른가 봅니다.', '5_242': '집 가서 자고 오면 됨.', '9_175': '그럼, 과거에 했던 아르바이트 중에 기억에 남는 게 있으신가요?', '2_299': '놀랍지 않습니다.', '3_89': '고생 많이 하셨어요.', '1_92': '빨리해야겠네.', '4_242': '선풍기만 쓴다고 하지 않았어?', '4_92': '어제도 늦게 잔 거예요?', '6_104': '오늘 엑스레이 찍은 거를 모니터에 보여주더라고요.', '8_175': '스지 어묵탕에는 진짜 사케가 술술 넘어갔었는데 진짜 맛있었지.', '4_288': '장단이 뚜렷한 것 같아요.', '8_299': '좋아한다고 무턱대고 책임감 없이 키우는 것보다 그게 나아요.', '9_54': '오늘도 하루 무사히 잘 보내시고 좋은 하루 보내시길 바랄게요.', '1_104': '종교인이셔요.', '6_288': '그럼 더 선호하거나 잘하는 포지션은 무엇인가요?', '8_244': '주 4회 정도 1시간 정도 하면 괜찮지 않을까?', '2_89': '부모님 차례입니다.', '6_35': '그렇게 되면 너무 좋을 거 같아요.', '3_206': '물 좀 마셔라.', '5_14': '가을은 역시 살찌는 계절인가 봐요.', '5_132': '아니면 오프라인 쇼핑을 더 선호하시나요?', '7_106': '근데 솔직히 따지자면 지금은 조금 이르지 않아?', '1_50': '틀렸어.', '9_134': '딱히 반응이 긍정적이지도 않은 것 같은데 그럴 수도 있겠네요.', '5_53': '그런 것도 있을 수도 있겠어.', '5_50': '그거만 아니면 참 좋을 텐데요.', '6_242': '약간 뭔지 알 거 같기도 해요.', '7_242': '그래서 다음에 주문할 때 또 사 먹으려고요.', '3_167': '방금까지 일하고 왔어요.', '9_50': '저 그 외장하드 샀는데 요즘 건 엄청 가볍고 작더라고요.', '5_106': '그래서 볼 때마다 신기하고 부럽더라고요.', '6_89': '습도가 낮으면서 맑은 하늘이면 참 좋겠어요.', '2_50': '전화 왔어.', '5_288': '그러면 왜 안 한 거야?', '5_244': '백번 물어도 태국일 거 같아요.', '9_104': '제가 땀이 많아서 더 그럴 수도 있을 것 같아요.', '2_14': '정말 재미있었어요.', '6_190': '바다보다 나무를 좋아해서 산이나 숲에 갔거든요.', '9_89': '제 기준 그럭저럭 괜찮은 곳 와서 만족하면서 다니고 있어요.', '3_106': '건강해야 여행도 가니까요.', '4_35': '너 건강검진 주기적으로 받음?', '7_167': '저도 창문 여니 쌀쌀해서 이불 다시 꺼냈어요.', '7_244': '근데 자주 안 써서 좀 돈 아까워요.', '4_106': '요즘 몇 명이나 나와요?', '5_299': '한 번씩 게임이 당기긴 해요.', '5_104': '요새 사고 싶은 물건 있으세요?', '9_2': '달고나 국자로 하기보다는 그냥 집에 있는 국자로 해 먹었어요.', '1_206': '힘드시겠어요.', '2_167': '게임 좋아하시나요?', '5_92': '혹시 옷은 어떤 거 좋아하시나요?', '2_175': '런지는 뭐지?', '9_244': '전 그쪽에는 영 재능이 없어서 잘하시는 분들 보면 부러워요.', '2_190': '밥도 있을걸?', '1_288': '정답입니다.', '2_288': '애완동물 있으세요?', '1_135': '좋나?', '4_167': '나 팝콘 꺼내와도 돼?', '5_135': '점심 드셔야 할 것 아닌가요?', '9_299': '메달 못 따는 거 아는데도 정말 응원해 주고 싶더라고요.', '1_244': '맞아요?', '4_2': '중고 거래도 자주 하시나요?', '9_35': '일반적인 진통제 맞고도 이상 증세 반응 보이는 사람도 많아요.', '8_288': '가을옷 사도 얼마 못 입고 금방 롱패딩 꺼내야겠더라고요.', '3_175': '등산이라니 엄청 부지런하세요.', '3_288': '그나마 사람다운 월급이네요.', '6_53': '처음 먹을 때 좀 효과 있어요.', '6_50': '갑자기 옛날 도시락 해 먹고 싶어서요.', '1_54': '영광이에요.', '9_167': '그렇게 되면 돈과 시간이 더 들더라도 임플란트가 안정적인 거네요?', '6_206': '저는 여행을 별로 다녀본 적이 없어서요!', '8_81': '저는 오히려 야자가 없어서 야자 하는 로망이 있었어요.', '7_288': '제 동생 아빠한테 연수받았는데 사이가 매우 좋아졌죠.', '8_167': '이젠 과제가 아닌 실전이라 차라리 과제를 하고 싶어요.', '1_81': '몰랐어!', '6_135': '가족에게 잘하는 사람이 최고인 것 같네요.', '2_244': '오늘도 샐러드?', '2_134': '저는 아직이요!', '6_14': '그냥 보는 정도 축구를 자주 보아요.', '5_81': '누가 슬리퍼 3만 원짜리 사냐고.', '4_89': '붓기는 엄청나게 붓긴 하더라고요.', '8_55': '진짜 눈앞에 있는 게 효과가 좋은 거 같아요.', '7_104': '여태까지 체험단으로 물건 몇 개나 받은 거야?', '1_190': '무조건임.', '4_51': '점심 먹는 낙으로 살아갑니다.', '4_132': '시간이 너무 오래 걸려서.', '9_81': '진짜 롱패딩 안 입던 시절이 어땠는지 기억이 안 나네요.', '8_135': '그거 1편은 텍스트로 줄거리만 봤고 2편은 지난주에 봤어요.', '5_89': '그래도 많이 안 와서 좋아요.', '7_51': '살기 위해 먹는 거 이해 못 함.', '3_55': '어떤 장단점이 있어요?', '3_135': '속도가 엄청 빠르더라고요.', '6_55': '저는 꼬꼬면이나 나가사끼 짬뽕을 추천해 봅니다.', '7_134': '영상물은 멀미를 심하게 해서 아쉽지만 못 봤어요.', '9_51': '진짜 무료로 이렇게 좋은 정보 얻을 수 있어 좋더라고요.', '9_55': '전 오늘 치즈돈가스 먹은 게 배불러서 저녁은 과자만 먹었어요.', '2_242': '저녁 드셨나?', '3_299': '어떤 아르바이트 하시나요?', '6_132': '건강을 위해서 운동하시는 모습이 보기 좋네요.', '6_167': '작가님의 복선 회수 능력이 정말 대단해.', '2_35': '더 부담되는데?', '6_81': '케이크 진짜 잘 알아보고 주문해야 해요.', '6_106': '체중이 늘어나니 확실히 더 무리가 가네요.', '2_55': '동물원도 좋네요.', '7_92': '칫솔질 자체를 도와주는 음파 진동 칫솔이 있더라고.', '8_54': '초급은 쉽고 차근차근 업그레이드되니 적응하실 수 있을 거예요.', '4_135': '오늘 저녁 메뉴는 무엇인가요?', '5_35': '그거 한 20번 하다가 관뒀어요.', '1_299': '뭘?', '4_81': '가을은 너무 짧아서 괜찮아요.', '3_51': '경로가 어떻게 됐나요?', '7_53': '설거지하고 나니 좀 있으면 점심 준비해야 해요.', '4_54': '한국이 참 편하긴 해요.', '1_14': '그랬네.', '8_206': '맞벌이다 보니 핑계 겸 저도 자주 시켜 먹어요.', '4_50': '내일까지 논문 제출 기간이거든요?', '4_295': '기억에 남는 아르바이트 있으세요?', '4_104': '저게 한 접시에 얼마야?', '8_295': '채널에 영상 몇 개 없고 좀 뜨려던 시절이었어요.', '7_2': '아무래도 장기 적금이라고 생각해야 할 것 같아요.'}
 
   const sentences_12 = {'8_21': '저는 다 잘 먹긴 하는데 일식이나 한식 좋아해요!', '3_253': '사실 가족인 거잖아요.', '4_59': '재료 준비하는 것도 어렵죠?', '6_131': '근데 이제 곧 자야 해서 참습니다.', '6_236': '바다가 엄청 깨끗하고 풍경도 예뻐서 좋았어요.', '6_122': '저는 요즘 너무 먹어서 굶을까 고민이에요.', '8_107': '반숙은 진짜 하기는 귀찮지만 언제나 배신하지 않는 맛이에요!', '4_131': '당직하고 오면 기가 빨려요.', '9_188': '저는 자취생은 아니지만 주말은 약간 암묵적으로 청소하는 날 아닌가요?', '5_170': '왠지 모르겠지만 요즘 좀 무기력하네요.', '9_122': '오늘 저녁 업무도 파이팅 하시고 하루 잘 마무리하시길 바랄게요.', '5_22': '어차피 안 쓰는 것 같던데?', '1_150': '중국집에서는?', '1_161': '만족해요.', '3_152': '저도 정신이 없었어요.', '9_189': '여자부는 다음 주부터 시작이라고 들었는데 일주일 만에 끝나는 건가요?', '8_22': '그렇게 생각했는데 너무 자주 그러셔서 좀 신경 쓰여요.', '5_277': '출근 전에 운동하려고 일찍 일어나요.', '1_22': '건강식이네요.', '6_107': '서울에서 화성까지 한 시간 안 걸리더라고요!', '1_131': '좋으시겠어요.', '9_103': '몸에 좋은 거니 참고 마시고는 있는데 냄새가 너무 역하네요.', '2_161': '그래서 샀습니다.', '1_72': '돌아다닌다고?', '1_271': '맛있네요.', '2_22': '사정이 있습니다.', '2_271': '8시 시작해요?', '9_150': '점점 게을러져서 안 가기 시작했는데 운동하기 좋은 동기부여가 있을까요?', '4_122': '강아지는 존재만으로도 행복을 주네요.', '1_103': '엄청나네요!', '8_161': '요새 투자 쪽 책이 인기가 많은 것 같아요!', '5_150': '야구는 진짜 직관의 재미가 있죠.', '8_300': '제 친한 친구들은 거의 다 결혼 안 했어요.', '7_21': '집안일 중에 제일 힘든 게 어떤 거예요?', '9_88': '어쨌든 항상 생각하는 건 말만 해서는 안 된다는 거야.', '1_258': '잘했어!', '5_107': '소용량으로 팔아줬으면 좋겠다고 가끔 생각해요.', '6_22': '그건 먹을 수 있을 거 같아요.', '3_59': '정말 너무 끔찍했어요.', '1_215': '헷갈리더라고.', '9_258': '입어보고 사는 게 진짜 돈 아끼는 거 같은 느낌.', '2_150': '효과가 있어요?', '3_150': '여름철에 배탈 조심하세요.', '6_271': '애니메이션이었는데 새 나오는 거 제목이 뭐였더라?', '2_215': '잘해주니까 좋아하지.', '8_150': '요즘에 군대 간 연예인들도 많은데 금방 나오는 느낌이잖아요.', '7_215': '가지고 가는 사람 보니 손잡이가 너무 가늘던데.', '6_152': '일주일에 4시간 정도 접속하는 거 같네요!', '4_21': '가족이나 커플끼리 보기 좋아요.', '6_258': '우연히 한번 가봤는데 생각보다 너무 좋았어요.', '8_152': '이 날씨에도 더워서 에어컨 트는 분들이 꼭 있어요.', '4_271': '저도 그 정도 되네요.', '2_236': '아직 학생이신가요?', '8_236': '이것도 둘 다 좋아하는데 밥보단 면을 더 좋아해요.', '4_258': '이번 주부터 날씨가 추워진대요.', '7_59': '야구 오래 안 보셔서 모르는 얼굴이 많으시겠어요.', '5_49': '날 정해놓으면 어디로 가고 싶으세요?', '7_236': '근데 우리가 갔을 때가 썰물이라 갯벌만 있었음.', '3_170': '동생 몇 살이세요?', '6_188': '집안일 담당하시는 건 따로 없으신 거예요?', '5_103': '집에선 주로 어떤 거 하세요?', '1_170': '무섭네.', '1_253': '좋았죠.', '9_59': '완전 정식대로 하는 전문점에서는 고수를 거의 넣는 거 같더라고요.', '9_152': '일단 해외여행이 처음이라 설레서 그런지 뭐든 다 신기하고 좋았어요.', '6_21': '그거 하시는 분 많은 거 같아요.', '4_150': '약간 결혼 생각은 있으세요?', '1_100': '추천합니다.', '7_122': '나는 겨울옷이 예쁘고 땀이 안 나서 좋아.', '2_107': '그거 버려.', '3_131': '왜 이렇게 친절해졌지?', '4_277': '저는 실내 자전거만 타요.', '1_277': '야근했어요.', '6_170': '그래서 정신이 하나도 없는 거 같아요.', '2_88': '오늘 출발?', '5_152': '많이 마시면 돈도 내라고 함?', '5_189': '청소는 꼭 해야 하는 일이죠.', '2_189': '그거 보셨군요?', '8_100': '그래서 선풍기 타이머 맞추고 자는데 꺼지면 또 덥네요.', '2_277': '원피스 예뻐요?', '6_189': '재미를 가지다 보면 우리나라도 인기 있겠죠?', '1_88': '이해했어요.', '3_122': '저도 수영 좋아해요.', '7_188': '근데 너는 지금 무슨 노력을 하는 거냐?', '7_170': '그렇다고 가격이 다른 체인점에 비해 비싸지도 않고!', '9_253': '그냥 평범한 맛이라 한 번 시도해 보기엔 나쁘지 않아요.', '2_253': '언제쯤 되려나요?', '2_100': '얼마나 하나요?', '2_122': '역동적으로 추죠?', '8_72': '그래서 어차피 물릴 거 같아서 바르는 모기약을 샀어요.', '1_122': '무섭다.', '6_300': '한식집이라고 분류는 되어있는데 분식 같기도 해요.', '3_188': '마늘빵은 실패가 없음.', '8_122': '우리 집 원래 8시에서 9시 사이에 저녁 먹음.', '2_192': '이미 늦었습니다.', '9_131': '한 달 살기 생각만 해도 진짜 행복할 거 같네요.', '9_277': '옷 입을 때 가장 중요하게 생각하는 부분이 어떤 거예요?', '4_88': '이번 여름에도 계곡에 다녀오셨어요?', '3_215': '누군가 뒤따라갈 거예요.', '6_161': '저는 아까 집 오면서 장 봤어요.', '2_131': '진짜 재능이다.', '2_152': '동생이 해줬어요.', '4_189': '뭐든 운동을 좀 해야겠어요.', '7_49': '거짓말할 일도 안 만드는 게 가장 최고죠.', '9_22': '칠순 준비 슬슬 해야 하나 싶은데 엄두가 안 나요.', '3_100': '어린이 박물관도 있어요.', '4_300': '절은 대부분 산속에 있지요.', '9_271': '진짜 어디 안 다치고 건강한 게 최고인 것 같아요.', '4_152': '거기 안 멀지 않나?', '1_21': '죄송해요.', '6_103': '소시지 구운 거랑 해서 먹을 예정이에요.', '9_192': '쏘는 점수도 보지만 심박수 보는 재미도 있었던 거 같아요.', '7_189': '진짜 학생을 위한 교육을 하고 싶으셨나 봐요.', '6_59': '오늘 점심에 맛있는 거 나오면 좋겠네요.', '4_22': '재밌게 봤던 것 같네요!', '7_192': '나중에 친구끼리 모임하고 그러시면 뭐 하실 생각이셔요?', '6_150': '옷 소재인 거 같은데 정체를 모르겠어요.', '6_88': '동아리 같은 거 하신 거 있으세요?', '8_59': '전 이것저것 닥치는 대로 먹어서 추천 브랜드는 없어요.', '9_100': '기능 쓰지도 않을 건데 뭐 하러 좋은 거 씁니까?', '9_170': '힘들어서 그랬는지 순수하고 착하고 구김 없는 성격이었는데 그늘이 생겨버렸어.', '7_107': '내년 1월이면 우리 집에 온 지 1년째야.', '4_49': '갑작스러워서 준비도 못 했겠네요.', '8_103': '나 막상 봄가을 옷 사도 며칠 입지도 못한다고.', '8_192': '저는 몇 년 전에 제주도에서 2년 정도 살았어요.', '9_215': '네가 다 먹을 줄 알고 저렇게 많이 해놓으신 거야.', '9_161': '저는 주로 저녁 먹고 운동하거나 공부하거나 기타 연습을 해요.', '2_170': '그건 뭔데?', '3_107': '색상 변화 없어?', '9_300': '평소에 다니던 캠핑장과는 다른 분위기라서 나름 잘 보내고 왔어요.', '2_72': '점점 더워지네요.', '3_236': '강아지 키우고 싶다.', '8_258': '잘하려고 안 하고 운동으로 보고 하니까 못해도 괜찮더라고요.', '3_72': '늦잠이나 실컷 자야겠어요.', '6_100': '주말 내내 날씨가 우중충할 거 같네요.', '1_59': '잘하세요?', '2_49': '양산 좋죠!', '1_192': '왜지?', '3_21': '물론 지금도 젊지만요.', '8_188': '어젠 날씨 그리 좋더니 오늘은 별로 안 좋네.', '4_107': '그러면 바로 올라와야 해?', '5_59': '이것도 무려 2년 전 이야기입니다.', '3_161': '딸기 비싸서 그렇지.', '4_253': '단체 매표소 줄도 길겠어요.', '5_131': '내일 한 번 검색해 보셔요.', '1_188': '훌륭하네요.', '7_100': '그냥 동네 미용실이라서 예약 따로 안 받음.', '7_72': '며칠 전까지 벼르고 별렀던 블루투스 키보드를 구매했어요.', '8_271': '긴 거는 180분짜리도 있고 짧은 건 20분짜리도 있음.', '4_215': '랜턴 무슨 색 하셨어요?', '5_100': '하고 돈 안 내도 돼?', '7_300': '오늘 같은 날 야외에서 맥주 마시고 싶네요.', '5_215': '환절기 감기 잘 걸리는 편이세요?', '8_277': '안 가는 거랑 못 가는 거랑 차이가 커요.', '1_300': '미안해요.', '7_103': '진짜 상상도 할 수 없는 이야기들이 나와요.', '2_300': '로망이 있었어요.', '5_253': '따로 봉사활동은 안 하고 있어요.', '7_161': '지금 생활하는 것도 벅찬데 신경 쓰기 귀찮더라고요.', '1_189': '퇴근이네요.', '5_72': '이름이 너무 유치한 것 같아.', '4_103': '진짜 노벨상 줘야 합니다.', '4_192': '많이 했을 거 같아요.', '3_192': '연배가 비슷한가 봐요?', '3_277': '야구는 잘 몰라요.', '7_22': '나중에 절 갈 일이 생기면 꼭 참고해야겠어요.', '9_72': '계란을 적당량 드시는 게 건강 유지에 좋을 것 같아요.', '8_131': '근데 성실하고 가정적인 분이면 없어도 될 거 같아요.', '3_189': '유명한 말이 생각나네요.', '3_258': '쇼핑 자주 하시나요?', '5_161': '최근에 즐기고 계시는 취미가 있으신가요?', '3_49': '저는 보기만 했어요.', '3_300': '좋아하는 전공과목 있으세요?', '5_88': '저도 아침은 반드시 챙겨 먹습니다.', '7_88': '저도 새벽에 깨어있을 때 한 번 봐야겠네요.', '2_21': '자신이 없네요.', '3_88': '솔직히 배우고 싶음.', '1_236': '저녁?', '3_22': '연애는 하고 계시나요?', '2_188': '여름휴가 다녀오셨나요?', '4_236': '패션이나 미용에 관심이 있으신가요??', '2_59': '책임감이 없네요.', '5_258': '몇 분이 같이 살았던 거예요?', '7_258': '여긴 선선한 바람이 부는데 비는 안 오네요.', '9_21': '저는 글램핑 좋아는 하는 데 많이 못 가봐서 부러워요.', '7_271': '요즘 추워져서 그런지 국물 있는 요리가 당기더라고요!', '3_271': '그럴 거 같아요.', '5_192': '목욕탕 갈 때 쓰는 거.', '5_271': '만약 사게 되면 너도 써볼래?', '9_107': '정말 살면서 여기보다 까다로운 학교는 못 볼 것 같아.', '8_49': '저도 곧 해야 할 수 있어서 관심이 많아요.', '6_72': '결혼 전에는 받아봤는데, 결혼하고는 안 받았어요.', '4_72': '저도 되게 가고 싶네요.', '8_215': '예전에 부모님 집에서 키우셨으면 지금도 키우고 싶지는 않으세요?', '5_21': '화면 큰 거 좋아하시나 봐요?', '7_277': '사람들이 만들어 놓은 플레이리스트 같은 거 들으시나요?', '7_150': '저도 밥 먹을 때 꼭 예능 틀어놔요.', '7_152': '그럼, 학교 다닐 때 무슨 점이 좋으셨나요?', '5_188': '최근에는 직접 가서 본건 없어요.', '8_88': '아무도 안 봐주는 시절이라는 말이 너무 심금을 울리네요.', '2_258': '저는 여름이요.', '4_100': '가고 싶은 여행지 있으신가요?', '4_161': '단풍 나들이 계획은 있으신가요?', '1_152': '신기하네요.', '9_236': '약간 춥긴 한데 자주 안 챙기게 되는 것 같아요.', '5_236': '그건 아직 발표가 안 났어요.', '5_122': '김치 담그는 게 쉽지는 않죠.', '6_49': '가끔 파스타 만들어 먹는데 귀찮다가도 맛있어요.', '3_103': '저도 좀 애매했어요.', '5_300': '저도 마트랑 카페랑 여기저기서 해봤어요.', '9_49': '저도 그렇게 생각하는 쪽인데 참 어려운 문제 같긴 해요.', '7_131': '난 라면 먹고 싶은데, 집에 없어서 고민이야.', '6_215': '그래서 도서관 갈 수 있는 거구나.', '6_277': '서울에 살면서도 한 번을 안 가봤네요.', '8_253': '제법 사랑에 빠진 사연 많은 비련의 주인공 같아져요.', '2_103': '그렇게 들어있었어요.', '1_107': '그래야겠네요.', '8_170': '요즘 일교차가 커서 감기 조심해야 할 것 같아요.', '4_170': '다이어트도 함께 하시는 거예요?', '8_189': '잠잘 때 빼곤 퇴근이란 있을 수 없는 일이요.', '1_49': '봤어요.', '6_253': '저도 일식 돈가스를 더 선호하는 편이에요!', '6_192': '요즘 시판 소스 잘 나와서 맛있대요.', '7_253': '솔직히 퇴근하면 아무것도 하기 싫은 게 맞죠.', '4_188': '다 있어야 입장 가능한가?'}
+
+  const sentences_101 = {'101_1': 'This is a example sentence one.', '101_2': 'This is a example sentence two.'};
+
 //#endregion
+// ======== (1단계) 여기부터 아래로 교체 ========
 
-  const sentenceSets = { sentences_404, sentences_1, sentences_2, sentences_3, sentences_4, sentences_5, sentences_6, sentences_7, sentences_8, sentences_9, sentences_10, sentences_11, sentences_12 };
+  const sentenceSets = { sentences_404, sentences_1, sentences_2, sentences_3, sentences_4, sentences_5, sentences_6, sentences_7, sentences_8, sentences_9, sentences_10, sentences_11, sentences_12, sentences_101 };
 
-  // State Variables
+  // =========================
+  // 최종 설계 반영
+  // - keyEvent = e.code (물리 키 우선)
+  // - row는 keydown에서만 생성
+  // - repeat은 의도된 입력
+  // - IME는 isComposing 플래그만 기록
+  // - currentText는 참고용(after-text 가능 시 갱신)
+  // - Enter row의 currentText = 최종 userInput
+  // - referenceSentence / typingDuration / startTime / endTime은 마지막 row(Enter)에만 기록
+  // - location 컬럼 제거
+  // =========================
+
+  // ---- State Variables ----
   let selectedSentences = null;
   let sentenceKeys = [];
   let currentSentenceIndex = 0;
-  let startTime = 0;
-  let keystrokes = [];
 
-  // Helper Function: Update Counter Display
+  let trialMeta = null;
+  let currentKeyRows = [];
+  let isComposing = false;
+
+  // ---- Helpers ----
   function updateCounter() {
-    counterDisplay.textContent = `Sentence ${currentSentenceIndex + 1} of ${sentenceKeys.length}`;
+    counterDisplay.textContent =
+      `Sentence ${currentSentenceIndex + 1} of ${sentenceKeys.length}`;
   }
 
-  // Event Listener: Select Sentence Set
-  selectSetButton.addEventListener("click", () => {
-    const setNumber = setNumberInput.value.trim();
-    const setName = `sentences_${setNumber}`;
-
-    if (sentenceSets[setName]) {
-      selectedSentences = sentenceSets[setName];
-      sentenceKeys = Object.keys(selectedSentences);
-      sentenceSelectionDiv.style.display = "none";
-      experimentDiv.style.display = "block";
-      updateCounter();
-      errorMessage.style.display = "none"; // Clear error message
-    } else {
-      errorMessage.style.display = "block";
-    }
-  });
-
-  // Event Listener: Start Button
-  startButton.addEventListener("click", () => {
-    startTime = Date.now(); // Record Start Time
-    const currentKey = sentenceKeys[currentSentenceIndex];
-    sentenceElement.textContent = selectedSentences[currentKey];
-    sentenceElement.style.display = "block"; // Show the sentence
-    startButton.style.display = "none"; // Hide the Start button
-    typedSentence.style.display = "block"; // Show typing area
-    submitInstruction.style.display = "block"; // Show submit instruction
-    typedSentence.focus(); // Focus on the typing area
-  });
-
-  // Function: Submit Input
-  function submitInput() {
-    if (!typedSentence.value.trim()) return;
-
-    const userInput = typedSentence.value.trim();
-    const currentKey = sentenceKeys[currentSentenceIndex];
-    const referenceSentence = selectedSentences[currentKey];
-    const typingDuration = Date.now() - startTime;
-
-    // Prepare CSV Data
-    const csvData = [
-      ["Event", "value"],
-      ["Start", startTime],
-      ...keystrokes.map((keystroke) => [keystroke.key, keystroke.timestamp]),
-      ["End", Date.now()],
-      ["Reference Sentence", referenceSentence],
-      ["User Input", userInput],
-      ["Typing Duration", typingDuration],
-    ];
-
-    const fileName = `Entry_Sub${setNumberInput.value}_${currentKey}.csv`;
-    saveCSV(csvData, fileName);
-
-    // Reset State for Next Sentence
-    keystrokes = [];
-    currentSentenceIndex++;
-    if (currentSentenceIndex < sentenceKeys.length) {
-      typedSentence.style.display = "none";
-      submitInstruction.style.display = "none";
-      typedSentence.value = "";
-      startButton.style.display = "block";
-      sentenceElement.style.display = "none"; // Hide the previous sentence
-      instructions.innerHTML =
-        "You will be shown a Korean sentence.<br>You just need to <span class='highlight'>read it and type it</span>.<br>Please proceed <span class='highlight'>as quickly and accurately as possible</span>.";
-      updateCounter();
-    } else {
-      experimentDiv.style.display = "none";
-      resultsDiv.style.display = "block";
-    }
+  function csvEscape(v) {
+    const s = String(v ?? "");
+    if (/[",\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+    return s;
   }
 
-  // Helper Function: Save CSV
-  function saveCSV(data, fileName) {
-    const csvContent = data.map((row) => row.join(",")).join("\n");
-    const blob = new Blob([csvContent], { type: "text/csv" });
+  function saveCSVRows(rows, fileName) {
+    const csvContent = rows.map(r => r.map(csvEscape).join(",")).join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -137,13 +91,176 @@ document.addEventListener("DOMContentLoaded", () => {
     URL.revokeObjectURL(url);
   }
 
-  // Event Listener: Keystroke Tracking and Enter Key Submission
-  typedSentence.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault(); // Prevent newline
-      submitInput(); // Trigger Submit
-    } else {
-      keystrokes.push({ key: e.code, timestamp: Date.now() });
+  // ---- Sentence set selection ----
+  selectSetButton.addEventListener("click", () => {
+    const setNumber = setNumberInput.value.trim();
+    const setName = `sentences_${setNumber}`;
+
+    if (!sentenceSets[setName]) {
+      errorMessage.style.display = "block";
+      return;
     }
+
+    selectedSentences = sentenceSets[setName];
+    sentenceKeys = Object.keys(selectedSentences);
+    currentSentenceIndex = 0;
+
+    sentenceSelectionDiv.style.display = "none";
+    experimentDiv.style.display = "block";
+    resultsDiv.style.display = "none";
+    errorMessage.style.display = "none";
+
+    sentenceElement.style.display = "none";
+    typedSentence.style.display = "none";
+    submitInstruction.style.display = "none";
+    startButton.style.display = "block";
+    typedSentence.value = "";
+
+    updateCounter();
   });
+
+  // ---- Start trial ----
+  startButton.addEventListener("click", () => {
+    const startTime = Date.now();
+    const sentenceKey = sentenceKeys[currentSentenceIndex];
+    const referenceSentence = selectedSentences[sentenceKey];
+
+    trialMeta = {
+      sentenceIndex: currentSentenceIndex,
+      sentenceKey,
+      referenceSentence,
+      startTime,
+      endTime: null,
+      typingDuration: null
+    };
+
+    currentKeyRows = [];
+    isComposing = false;
+
+    sentenceElement.textContent = referenceSentence;
+    sentenceElement.style.display = "block";
+    startButton.style.display = "none";
+    typedSentence.style.display = "block";
+    submitInstruction.style.display = "block";
+
+    typedSentence.value = "";
+    typedSentence.focus();
+  });
+
+  // ---- IME 상태 플래그만 관리 ----
+  typedSentence.addEventListener("compositionstart", () => { isComposing = true; });
+  typedSentence.addEventListener("compositionend", () => { isComposing = false; });
+
+  // ---- Keydown logging ----
+  typedSentence.addEventListener("keydown", (e) => {
+    if (!trialMeta) return;
+
+    if (e.key === "Enter") {
+      e.preventDefault();
+      pushKeydownRow(e);   // Enter 자체도 row로 기록
+      submitInput();
+      return;
+    }
+
+    pushKeydownRow(e);
+  });
+
+  // ---- row push ----
+  // 컬럼:
+  // sentenceIndex, keystrokeTime, keyEvent, key, repeat, isComposing, currentText,
+  // referenceSentence, typingDuration, startTime, endTime
+  function pushKeydownRow(e) {
+    const now = Date.now();
+    const rowIndex = currentKeyRows.length;
+
+    const beforeText = typedSentence.value;
+
+    currentKeyRows.push([
+      trialMeta.sentenceIndex, // 0
+      now,                    // 1 keystrokeTime
+      e.code || "",           // 2 keyEvent (PRIMARY)
+      e.key || "",            // 3 key
+      e.repeat ? 1 : 0,       // 4 repeat
+      isComposing ? 1 : 0,    // 5 isComposing
+      beforeText,             // 6 currentText (참고용)
+      "", "", "", ""          // 7~10 (마지막 row만 metadata)
+    ]);
+
+    // after-text 스냅샷 시도
+    setTimeout(() => {
+      if (!trialMeta) return;
+      if (!currentKeyRows[rowIndex]) return;
+      currentKeyRows[rowIndex][6] = typedSentence.value;
+    }, 0);
+  }
+
+  function submitInput() {
+    if (!trialMeta) return;
+
+    const endTime = Date.now();
+    const typingDuration = endTime - trialMeta.startTime;
+
+    trialMeta.endTime = endTime;
+    trialMeta.typingDuration = typingDuration;
+
+    // 키 입력이 하나도 없었던 경우 대비
+    if (currentKeyRows.length === 0) {
+      currentKeyRows.push([
+        trialMeta.sentenceIndex,
+        endTime,
+        "Enter",
+        "Enter",
+        0,
+        isComposing ? 1 : 0,
+        typedSentence.value,
+        "", "", "", ""
+      ]);
+    }
+
+    // 마지막 row(Enter)에만 메타데이터 채움
+    const last = currentKeyRows[currentKeyRows.length - 1];
+    last[7]  = trialMeta.referenceSentence;
+    last[8]  = trialMeta.typingDuration;
+    last[9]  = trialMeta.startTime;
+    last[10] = trialMeta.endTime;
+
+    const header = [
+      "sentenceIndex",
+      "keystrokeTime",
+      "keyEvent",
+      "key",
+      "repeat",
+      "isComposing",
+      "currentText",
+      "referenceSentence",
+      "typingDuration",
+      "startTime",
+      "endTime"
+    ];
+
+    const setNo = setNumberInput.value.trim();
+    const fileName = `Entry_Sub${setNo}_${trialMeta.sentenceKey}.csv`;
+    saveCSVRows([header, ...currentKeyRows], fileName);
+
+    // 다음 문장
+    trialMeta = null;
+    currentKeyRows = [];
+
+    currentSentenceIndex++;
+
+    if (currentSentenceIndex < sentenceKeys.length) {
+      typedSentence.style.display = "none";
+      submitInstruction.style.display = "none";
+      typedSentence.value = "";
+      startButton.style.display = "block";
+      sentenceElement.style.display = "none";
+      updateCounter();
+    } else {
+      experimentDiv.style.display = "none";
+      resultsDiv.style.display = "block";
+    }
+  }
+
+
+
 });
