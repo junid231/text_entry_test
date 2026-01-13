@@ -48,15 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const sentenceSets = { sentences_404, sentences_1, sentences_2, sentences_3, sentences_4, sentences_5, sentences_6, sentences_7, sentences_8, sentences_9, sentences_10, sentences_11, sentences_12, sentences_101 };
 
   // =========================
-  // 최종 설계 반영
+  // 합본 CSV + 자동저장(IndexedDB) + 복구
+  // =========================
   // - keyEvent = e.code (물리 키 우선)
   // - row는 keydown에서만 생성
-  // - repeat은 의도된 입력
+  // - repeat은 의도된 입력(연타/길게누름)
   // - IME는 isComposing 플래그만 기록
   // - currentText는 참고용(after-text 가능 시 갱신)
-  // - Enter row의 currentText = 최종 userInput
   // - referenceSentence / typingDuration / startTime / endTime은 마지막 row(Enter)에만 기록
-  // - location 컬럼 제거
   // =========================
 
   // ---- State Variables ----
@@ -67,6 +66,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let trialMeta = null;
   let currentKeyRows = [];
   let isComposing = false;
+
+  // ---- NEW: merged rows + autosave ----
+  const CSV_HEADER = [
+    "sentenceIndex",
+    "keystrokeTime",
+    "keyEvent",
+    "key",
+    "repeat",
+    "isComposing",
+    "currentText",
+    "referenceSentence",
+    "typingDuration",
+    "startTime",
+    "endTime"
+  ];
+
+  let allRows = [];                 // 전체 row 누적
+  let selectedSetName = null;       // sentences_1, sentences_2 ...
+  let autosaveKey = null;           // autosave:set:<setNo>
 
   // ---- Helpers ----
   function updateCounter() {
@@ -91,8 +109,109 @@ document.addEventListener("DOMContentLoaded", () => {
     URL.revokeObjectURL(url);
   }
 
-  // ---- Sentence set selection ----
-  selectSetButton.addEventListener("click", () => {
+  function downloadMergedCSV() {
+    const setNo = setNumberInput.value.trim();
+    const mergedFileName = `Entry_Sub${setNo}_ALL.csv`;
+    saveCSVRows([CSV_HEADER, ...allRows], mergedFileName);
+  }
+
+  // =========================
+  // IndexedDB autosave
+  // =========================
+  const DB_NAME = "text_entry_experiment";
+  const STORE_NAME = "autosave";
+  const DB_VERSION = 1;
+
+  function openDB() {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onupgradeneeded = () => {
+        const db = req.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) {
+          db.createObjectStore(STORE_NAME);
+        }
+      };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function idbSet(key, value) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readwrite");
+      tx.objectStore(STORE_NAME).put(value, key);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+
+  async function idbGet(key) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readonly");
+      const req = tx.objectStore(STORE_NAME).get(key);
+      req.onsuccess = () => resolve(req.result ?? null);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function idbDel(key) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readwrite");
+      tx.objectStore(STORE_NAME).delete(key);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+
+  async function autosave() {
+    if (!autosaveKey) return;
+    const payload = {
+      version: 1,
+      savedAt: Date.now(),
+      setNo: setNumberInput.value.trim(),
+      selectedSetName,
+      sentenceKeys,
+      currentSentenceIndex,
+      allRows
+    };
+    try {
+      await idbSet(autosaveKey, payload);
+    } catch (e) {
+      console.warn("autosave failed:", e);
+    }
+  }
+
+  async function tryRestoreAutosave(setNo) {
+    const key = `autosave:set:${setNo}`;
+    const saved = await idbGet(key);
+    if (!saved) return false;
+
+    if (!Array.isArray(saved.allRows) || !Array.isArray(saved.sentenceKeys)) return false;
+
+    allRows = saved.allRows;
+    sentenceKeys = saved.sentenceKeys;
+    currentSentenceIndex = saved.currentSentenceIndex ?? 0;
+    selectedSetName = saved.selectedSetName ?? null;
+    autosaveKey = key;
+
+    return true;
+  }
+
+  // 탭이 숨겨지거나 페이지가 사라질 때 autosave 시도 (다운로드는 불가)
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") autosave();
+  });
+  window.addEventListener("pagehide", () => {
+    autosave();
+  });
+
+  // =========================
+  // Sentence set selection (복구 포함)
+  // =========================
+  selectSetButton.addEventListener("click", async () => {
     const setNumber = setNumberInput.value.trim();
     const setName = `sentences_${setNumber}`;
 
@@ -101,9 +220,22 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    selectedSetName = setName;
+    autosaveKey = `autosave:set:${setNumber}`;
     selectedSentences = sentenceSets[setName];
-    sentenceKeys = Object.keys(selectedSentences);
-    currentSentenceIndex = 0;
+
+    // (1) 복구 데이터 있으면 복구, 없으면 새로 시작
+    const restored = await tryRestoreAutosave(setNumber);
+
+    if (!restored) {
+      sentenceKeys = Object.keys(selectedSentences);
+      currentSentenceIndex = 0;
+      allRows = [];
+      await autosave(); // 세션 시작 저장
+    } else {
+      // 복구된 sentenceKeys / currentSentenceIndex / allRows 사용
+      // selectedSentences는 setName으로 다시 잡아둔 상태
+    }
 
     sentenceSelectionDiv.style.display = "none";
     experimentDiv.style.display = "block";
@@ -119,7 +251,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
   });
 
-  // ---- Start trial ----
+  // =========================
+  // Start trial
+  // =========================
   startButton.addEventListener("click", () => {
     const startTime = Date.now();
     const sentenceKey = sentenceKeys[currentSentenceIndex];
@@ -194,6 +328,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 0);
   }
 
+  // =========================
+  // Submit (trial finalize -> merged accumulate -> autosave)
+  // =========================
   function submitInput() {
     if (!trialMeta) return;
 
@@ -224,25 +361,13 @@ document.addEventListener("DOMContentLoaded", () => {
     last[9]  = trialMeta.startTime;
     last[10] = trialMeta.endTime;
 
-    const header = [
-      "sentenceIndex",
-      "keystrokeTime",
-      "keyEvent",
-      "key",
-      "repeat",
-      "isComposing",
-      "currentText",
-      "referenceSentence",
-      "typingDuration",
-      "startTime",
-      "endTime"
-    ];
+    // (변경) trial rows를 전체 rows에 누적
+    allRows.push(...currentKeyRows);
 
-    const setNo = setNumberInput.value.trim();
-    const fileName = `Entry_Sub${setNo}_${trialMeta.sentenceKey}.csv`;
-    saveCSVRows([header, ...currentKeyRows], fileName);
+    // (추가) 매 trial마다 autosave
+    autosave();
 
-    // 다음 문장
+    // 다음 문장 준비
     trialMeta = null;
     currentKeyRows = [];
 
@@ -256,8 +381,14 @@ document.addEventListener("DOMContentLoaded", () => {
       sentenceElement.style.display = "none";
       updateCounter();
     } else {
+      // 실험 끝: 합본 CSV 1개 다운로드
       experimentDiv.style.display = "none";
       resultsDiv.style.display = "block";
+
+      downloadMergedCSV();
+
+      // autosave 정리(원하면 지우지 않고 유지해도 됨)
+      if (autosaveKey) idbDel(autosaveKey);
     }
   }
 
